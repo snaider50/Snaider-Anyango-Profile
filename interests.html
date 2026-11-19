@@ -4,97 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Interests | Snaider Anyango</title>
+    <title>Snaider Anyango | Interests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<header class="navbar">
+<header class="header">
     <a href="index.html" class="logo">SNAIDER.</a>
-    <button class="menu-toggle" aria-label="Open menu">☰</button>
-    <nav class="nav-links">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="profile.html">Profile</a>
         <a href="skills.html">Skills</a>
-        <a href="interests.html" class="active">Interests</a>
+        <a href="interests.html">Interests</a>
         <a href="goals.html">Goals</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<main class="interests-page">
+<section class="page-heading">
+    <h1>My Activities & Interests</h1>
+    <p>Discover the things that inspire me 💕</p>
+</section>
 
-    <section class="page-heading">
-        <span class="small-tag">THINGS I LOVE</span>
-        <h1>My Hobbies & Interests</h1>
-        <p>The activities and passions that make me happy and inspired.</p>
-    </section>
+<section class="content-section">
 
-    <section class="interests-grid">
+    <div class="interest-grid">
 
         <div class="interest-card">
-            <div class="interest-icon">💻</div>
-            <h2>Technology</h2>
-            <a href="https://www.pinterest.com/pin/1087689747517898851/" target="_blank" rel="noopener noreferrer">View on Pinterest</a>
+            <span>💻</span>
+            <h2>Web Development</h2>
             <p>
-                I enjoy exploring technology and learning how websites
-                and digital applications are created.
+                I enjoy designing websites and learning
+                HTML, CSS and JavaScript.
             </p>
         </div>
 
         <div class="interest-card">
-            <div class="interest-icon">📚</div>
-            <h2>Learning</h2>
+            <span>📚</span>
+            <h2>Learning & Reading</h2>
             <p>
-                I love gaining knowledge, discovering new ideas
-                and improving my abilities.
+                I love reading books and discovering
+                new knowledge.
             </p>
         </div>
 
         <div class="interest-card">
-            <div class="interest-icon">🎨</div>
-            <h2>Creativity</h2>
+            <span>🎵</span>
+            <h2>Listening to Music</h2>
             <p>
-                I enjoy using imagination and creativity to develop
-                attractive designs and express ideas.
-            </p>
-        </div>
-
-        <div class="interest-card">
-            <div class="interest-icon">🎵</div>
-            <h2>Music</h2>
-            <p>
-                Listening to music helps me relax, feel inspired
+                Music helps me relax, stay inspired
                 and enjoy my free time.
             </p>
         </div>
 
         <div class="interest-card">
-            <div class="interest-icon">🌍</div>
-            <h2>Exploring</h2>
+            <span>🎨</span>
+            <h2>Creativity & Design</h2>
             <p>
-                I enjoy discovering new places, experiences
-                and different ways of looking at the world.
+                I enjoy creating beautiful designs
+                and exploring new ideas.
             </p>
         </div>
 
         <div class="interest-card">
-            <div class="interest-icon">📷</div>
-            <h2>Photography</h2>
+            <span>🤝</span>
+            <h2>Socializing</h2>
             <p>
-                I appreciate capturing beautiful moments
-                and creative scenes.
+                I enjoy interacting with people and
+                learning from others.
             </p>
         </div>
 
-    </section>
+        <div class="interest-card">
+            <span>🌍</span>
+            <h2>Exploring New Things</h2>
+            <p>
+                I love discovering new experiences
+                and learning different skills.
+            </p>
+        </div>
 
-</main>
+    </div>
+
+    <div class="quote-card">
+        <h2>My Favourite Quote 💗</h2>
+        <p>
+            "Never stop learning, never stop growing
+            and always believe in yourself."
+        </p>
+        <strong>— Snaider Anyango</strong>
+    </div>
+
+</section>
 
 <footer>
-    <p>&copy; <span id="year">2026</span> Snaider Anyango. All Rights Reserved.</p>
+    © <span class="year">2026</span> Snaider Anyango.
+    All Rights Reserved.
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>

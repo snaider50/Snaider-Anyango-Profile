@@ -4,102 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Skills | Snaider Anyango</title>
+    <title>Snaider Anyango | Skills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<header class="navbar">
+<header class="header">
     <a href="index.html" class="logo">SNAIDER.</a>
-    <button class="menu-toggle" aria-label="Open menu">☰</button>
-    <nav class="nav-links">
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="profile.html">Profile</a>
-        <a href="skills.html" class="active">Skills</a>
+        <a href="skills.html">Skills</a>
         <a href="interests.html">Interests</a>
         <a href="goals.html">Goals</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<main class="skills-page">
+<section class="page-heading">
+    <h1>My Skills & Abilities</h1>
+    <p>Learning today, building tomorrow. 💜</p>
+</section>
 
-    <section class="page-heading">
-        <span class="small-tag">WHAT I CAN DO</span>
-        <h1>My Skills & Abilities</h1>
-        <p>Skills I am developing as I grow in technology and everyday life.</p>
-    </section>
+<section class="content-section">
+    <div class="info-card">
+        <h2>💻 My Technical Skills</h2>
 
-    <section class="skills-container">
-
-        <div class="skill-card">
-            <div class="skill-icon">🌐</div>
-            <h2>HTML</h2>
-            <p>
-                Learning to structure web pages using headings,
-                paragraphs, images, links and forms.
-            </p>
-            <span class="skill-label">Currently Learning</span>
+        <div class="skill">
+            <div class="skill-label">
+                <span>HTML</span><span>85%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" data-progress="85%"></div>
+            </div>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🎨</div>
-            <h2>CSS</h2>
-            <p>
-                Learning to style websites with colours, layouts,
-                typography and responsive designs.
-            </p>
-            <span class="skill-label">Currently Learning</span>
+        <div class="skill">
+            <div class="skill-label">
+                <span>CSS</span><span>70%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" data-progress="70%"></div>
+            </div>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">⚡</div>
-            <h2>JavaScript</h2>
-            <p>
-                Developing my understanding of programming,
-                interactivity and website functionality.
-            </p>
-            <span class="skill-label">Currently Learning</span>
+        <div class="skill">
+            <div class="skill-label">
+                <span>JavaScript</span><span>50%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" data-progress="50%"></div>
+            </div>
         </div>
+    </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">💬</div>
-            <h2>Communication</h2>
-            <p>
-                Sharing ideas, listening carefully and expressing
-                information clearly.
-            </p>
-            <span class="skill-label">Personal Skill</span>
-        </div>
-
-        <div class="skill-card">
-            <div class="skill-icon">🤝</div>
-            <h2>Teamwork</h2>
-            <p>
-                Working with others, respecting different ideas
-                and learning through collaboration.
-            </p>
-            <span class="skill-label">Personal Skill</span>
-        </div>
-
-        <div class="skill-card">
-            <div class="skill-icon">🧠</div>
-            <h2>Problem Solving</h2>
-            <p>
-                Thinking creatively, identifying challenges
-                and finding practical solutions.
-            </p>
-            <span class="skill-label">Developing</span>
-        </div>
-
-    </section>
-
-</main>
+    <div class="info-card">
+        <h2>✨ My Personal Abilities</h2>
+        <ul class="nice-list">
+            <li>Creativity and innovation</li>
+            <li>Problem-solving</li>
+            <li>Communication</li>
+            <li>Teamwork</li>
+            <li>Time management</li>
+            <li>Continuous learning</li>
+        </ul>
+    </div>
+</section>
 
 <footer>
-    <p>&copy; <span id="year">2026</span> Snaider Anyango. All Rights Reserved.</p>
+    © <span class="year">2026</span> Snaider Anyango.
+    All Rights Reserved.
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>

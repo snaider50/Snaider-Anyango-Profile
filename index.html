@@ -4,66 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Snaider Anyango</title>
+    <title>Snaider Anyango | Personal Website</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
 
-<header class="navbar">
-    <a href="index.html" class="logo">SNAIDER.</a>
-    <button class="menu-toggle" aria-label="Open menu">☰</button>
-    <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="skills.html">Skills</a>
-        <a href="interests.html">Interests</a>
-        <a href="goals.html">Goals</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <!-- NAVIGATION -->
+    <header class="header">
+        <a href="index.html" class="logo">SNAIDER.</a>
 
-<main>
-    <section class="hero">
-        <div class="hero-content">
-            <span class="small-tag">WELCOME TO MY PERSONAL WEBSITE</span>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <nav id="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="skills.html">Skills</a>
+            <a href="interests.html">Interests</a>
+            <a href="goals.html">Goals</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME HERO SECTION -->
+    <section class="home-hero">
+
+        <div class="home-content">
+            <p class="welcome-label">✨ WELCOME TO MY PERSONAL WEBSITE</p>
+
             <h1>Hello, I'm <span>Snaider Anyango</span></h1>
-            <h2>Aspiring Web Developer</h2>
 
-            <p>
+            <h2>Aspiring Web Developer 💻</h2>
+
+            <p class="home-description">
                 I am a passionate individual learning coding and web
                 development. I love creativity, technology and building
                 beautiful websites. Welcome to my little corner of the web!
             </p>
 
-            <a href="profile.html" class="btn">Discover More</a>
+            <div class="home-buttons">
+                <a href="profile.html" class="btn">Discover More</a>
+                <a href="contact.html" class="btn second-btn">Say Hello 👋</a>
+            </div>
+
+            <div class="social-text">
+                💗 Dream Big | ✨ Stay Creative | 💻 Keep Learning
+            </div>
         </div>
 
-        <div class="hero-image">
-            <img id="profilePhoto"
-                 src="images/profile.jpg"
-                 alt="Photo of Snaider Anyango">
+        <!-- HOME PROFILE PHOTO -->
+        <div class="home-photo-area">
 
-            <label for="photoUpload" class="upload-btn">
-                Change My Photo
-            </label>
-            <input type="file" id="photoUpload" accept="image/*">
+            <div class="photo-decoration decoration-one"></div>
+            <div class="photo-decoration decoration-two"></div>
+
+            <div class="home-photo-card">
+                <img
+                    src="images/snaider.jpg"
+                    id="homeProfilePhoto"
+                    alt="Photo of Snaider Anyango"
+                >
+
+                <h3>Photo of Snaider Anyango</h3>
+                <p>Welcome to my world! 💕</p>
+
+                <label for="homePhotoUpload" class="upload-btn">
+                    📷 Upload My Photo
+                </label>
+
+                <input
+                    type="file"
+                    id="homePhotoUpload"
+                    accept="image/*"
+                    hidden
+                >
+            </div>
+
         </div>
+
     </section>
 
-    <section class="home-welcome">
-        <span class="small-tag">GET TO KNOW ME</span>
+    <!-- ABOUT PREVIEW -->
+    <section class="get-to-know">
+        <p class="section-label">💜 GET TO KNOW ME</p>
+
         <h2>Every Day Is a Chance to Grow</h2>
+
         <p>
             Explore my personal background, skills, interests and future
             ambitions as I continue learning and growing.
         </p>
+
+        <a href="profile.html" class="btn">Explore My Profile</a>
     </section>
-</main>
 
-<footer>
-    <p>&copy; <span id="year">2026</span> Snaider Anyango. All Rights Reserved.</p>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Snaider Anyango. All Rights Reserved. 💖
+    </footer>
 
-<script src="script.js"></script>
 </body>
 </html>

@@ -1,61 +1,235 @@
 
-// ===================================
-// 1. AUTOMATIC FOOTER YEAR
-// ===================================
+/* =================================
+   SNAIDER ANYANGO WEBSITE JAVASCRIPT
+================================= */
 
-const yearElement = document.getElementById("year");
+// 1. MOBILE NAVIGATION
+const menuToggle = document.getElementById("menuToggle");
+const navbar = document.getElementById("navbar");
 
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-}
+if (menuToggle && navbar) {
+    menuToggle.addEventListener("click", function () {
+        navbar.classList.toggle("active");
 
-
-// ===================================
-// 2. MOBILE NAVIGATION
-// ===================================
-
-const menuButton = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-if (menuButton && navLinks) {
-
-    menuButton.addEventListener("click", function () {
-        navLinks.classList.toggle("show");
+        menuToggle.textContent =
+            navbar.classList.contains("active") ? "✕" : "☰";
     });
-
 }
 
+// 2. ACTIVE NAVIGATION LINK
+document.querySelectorAll("#navbar a").forEach(link => {
+    if (
+        link.pathname === window.location.pathname ||
+        (window.location.pathname.endsWith("/") &&
+         link.getAttribute("href") === "index.html")
+    ) {
+        link.classList.add("active");
+    }
+});
 
-// ===================================
-// 3. PROFILE PHOTO UPLOAD
-// ===================================
+// 3. GREETING BUTTON
+const greetBtn = document.getElementById("greetBtn");
+const greeting = document.getElementById("greeting");
 
+if (greetBtn && greeting) {
+    greetBtn.addEventListener("click", function () {
+        greeting.textContent =
+            "Hello! Welcome to my personal website. Thank you for visiting! 💗";
+    });
+}
+
+// 4. CHANGE PROFILE PHOTO
 const photoUpload = document.getElementById("photoUpload");
 const profilePhoto = document.getElementById("profilePhoto");
 
-if (photoUpload && profilePhoto) {
-
-    // Load previously saved photo
-    const savedPhoto = localStorage.getItem("snaiderPhoto");
+if (profilePhoto) {
+    const savedPhoto = localStorage.getItem("myProfilePhoto");
 
     if (savedPhoto) {
         profilePhoto.src = savedPhoto;
     }
+}
 
-    // Upload a new photo
+if (photoUpload && profilePhoto) {
     photoUpload.addEventListener("change", function () {
 
-        const file = photoUpload.files[0];
+        const file = this.files[0];
 
         if (!file) return;
 
         if (!file.type.startsWith("image/")) {
-            alert("Please select a valid image.");
+            alert("Please select a valid image!");
+            this.value = "";
             return;
         }
 
         if (file.size > 2 * 1024 * 1024) {
-            alert("Image must be smaller than 2MB.");
+            alert("Please select an image smaller than 2MB.");
+            this.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            try {
+                localStorage.setItem(
+                    "myProfilePhoto",
+                    event.target.result
+                );
+
+                profilePhoto.src = event.target.result;
+
+                alert("Your photo has been changed successfully! 💕");
+
+            } catch (error) {
+                alert("Unable to save this photo. Try a smaller image.");
+            }
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+// 5. SKILLS ANIMATION
+const progressBars = document.querySelectorAll(".progress-bar");
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                const bar = entry.target;
+
+                bar.style.width = bar.dataset.progress;
+
+                observer.unobserve(bar);
+            }
+
+        });
+
+    }, { threshold: 0.2 });
+
+    progressBars.forEach(bar => observer.observe(bar));
+
+} else {
+    progressBars.forEach(bar => {
+        bar.style.width = bar.dataset.progress;
+    });
+}
+
+// 6. INTERACTIVE INTEREST CARDS
+document.querySelectorAll(".interest-card").forEach(card => {
+
+    card.addEventListener("click", function () {
+
+        card.classList.toggle("selected");
+
+    });
+
+});
+
+// 7. MOTIVATION BUTTON
+const motivationBtn = document.getElementById("motivationBtn");
+const motivationMessage =
+    document.getElementById("motivationMessage");
+
+const messages = [
+    "Believe in yourself. Your dreams are possible! 💗",
+    "Keep learning. Your future is bright! 🌟",
+    "Every small step takes you closer to success! 🎯",
+    "Never give up on your dreams! 💜",
+    "You are capable of amazing things! 🌷"
+];
+
+if (motivationBtn && motivationMessage) {
+
+    motivationBtn.addEventListener("click", function () {
+
+        const randomIndex =
+            Math.floor(Math.random() * messages.length);
+
+        motivationMessage.textContent =
+            messages[randomIndex];
+
+    });
+
+}
+
+// 8. CONTACT FORM
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+
+if (contactForm && formMessage) {
+
+    contactForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const emailBody =
+            "Name: " + name +
+            "\nEmail: " + email +
+            "\n\nMessage:\n" + message;
+
+        const mailLink =
+            "mailto:YOUR_EMAIL@gmail.com" +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(emailBody);
+
+        formMessage.textContent =
+            "Opening your email application to send your message... 💗";
+
+        window.location.href = mailLink;
+    });
+}
+
+// 9. AUTOMATIC FOOTER YEAR
+document.querySelectorAll(".year").forEach(element => {
+    element.textContent = new Date().getFullYear();
+});
+
+
+/* ===== HOME PAGE PHOTO UPLOAD ===== */
+
+const homePhotoUpload = document.getElementById("homePhotoUpload");
+const homeProfilePhoto = document.getElementById("homeProfilePhoto");
+
+// Display previously selected photo
+const savedHomePhoto = localStorage.getItem("myProfilePhoto");
+
+if (savedHomePhoto && homeProfilePhoto) {
+    homeProfilePhoto.src = savedHomePhoto;
+}
+
+// Upload a new photo
+if (homePhotoUpload && homeProfilePhoto) {
+
+    homePhotoUpload.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            alert("Please select an image file.");
+            return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) {
+            alert("Please choose a photo smaller than 2MB.");
             return;
         }
 
@@ -63,100 +237,16 @@ if (photoUpload && profilePhoto) {
 
         reader.onload = function (event) {
 
-            profilePhoto.src = event.target.result;
+            homeProfilePhoto.src = event.target.result;
 
-            localStorage.setItem(
-                "snaiderPhoto",
-                event.target.result
-            );
-
+            // Remember the selected photo in this browser
+            try {
+                localStorage.setItem("myProfilePhoto", event.target.result);
+            } catch (error) {
+                alert("This photo could not be saved. Please choose a smaller image.");
+            }
         };
 
         reader.readAsDataURL(file);
-
     });
-
 }
-
-
-// ===================================
-// 4. EMAILJS CONTACT FORM
-// ===================================
-
-const contactForm = document.getElementById("contact-form");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const sendButton = document.getElementById("send-button");
-        const status = document.getElementById("form-status");
-
-        sendButton.disabled = true;
-        sendButton.textContent = "Sending...";
-
-        status.textContent = "Sending your message...";
-        status.style.color = "#d63384";
-
-        emailjs.sendForm(
-            "service_zrjjqkd",
-            "template_cxem2xq",
-            contactForm
-        )
-
-        .then(function () {
-
-            status.textContent =
-                "Message sent successfully! Thank you for contacting me.";
-
-            status.style.color = "green";
-
-            contactForm.reset();
-
-        })
-
-        .catch(function (error) {
-
-            console.error("EmailJS Error:", error);
-
-            status.textContent =
-                "Message not sent. Please try again.";
-
-            status.style.color = "red";
-
-        })
-
-        .finally(function () {
-
-            sendButton.disabled = false;
-            sendButton.textContent = "Send Message";
-
-        });
-
-    });
-
-}
-
-
-// ===================================
-// 5. ACTIVE NAVIGATION LINK
-// ===================================
-
-const currentPage = window.location.pathname.split("/").pop();
-
-document.querySelectorAll(".nav-links a").forEach(function (link) {
-
-    const linkPage = link.getAttribute("href");
-
-    if (linkPage === currentPage) {
-        link.classList.add("active");
-    }
-
-});
-
-
-// ===================================
-// END OF SCRIPT
-// ===================================
